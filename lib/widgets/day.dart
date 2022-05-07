@@ -1,14 +1,15 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class Day extends StatelessWidget {
-  const Day({Key? key, required this.day}) : super(key: key);
+  const Day({Key? key, required this.day, this.isActive = false}) : super(key: key);
 
   final int day;
-
-  final _fontSize = const TextStyle(fontSize: 18);
+  final bool isActive;
 
   @override
   Widget build(BuildContext context) {
+    var _fontSize = TextStyle(fontSize: 18, color: isActive ? Colors.black : Colors.grey);
+
     return Center(child: Text(day.toString(), style: _fontSize));
   }
 }

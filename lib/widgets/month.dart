@@ -12,10 +12,9 @@ class Month extends StatelessWidget {
   Widget build(BuildContext context) {
     var _firstDayOfMonth = DateTime(year, month, 1);
 
-    final _days = List<int>.generate(Calendar.getLastDayOfMonth(_firstDayOfMonth),
-        (index) => _firstDayOfMonth.add(Duration(days: index)).day);
+    final _days = Calendar.fromDateTime(_firstDayOfMonth).getDaysOfCalendar();
 
     return GridView.count(
-        crossAxisCount: DateTime.daysPerWeek, children: _days.map((e) => Day(day: e).build(context)).toList());
+        crossAxisCount: DateTime.daysPerWeek, children: _days.map((e) => Day(day: e.day, isActive: e.month == _firstDayOfMonth.month,).build(context)).toList());
   }
 }
