@@ -5,6 +5,10 @@ import 'package:flutter/cupertino.dart';
 class Month extends StatelessWidget {
   const Month({Key? key, required this.year, required this.month}) : super(key: key);
 
+  Month.fromDateTime({Key? key, required DateTime dateTime})
+    : year = dateTime.year,
+      month = dateTime.month, super(key: key);
+
   final int year;
   final int month;
 
