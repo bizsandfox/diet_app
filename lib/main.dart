@@ -1,10 +1,14 @@
-import 'package:diet_app/widgets/calendar_header.dart';
-import 'package:diet_app/widgets/month.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:diet_app/widgets/calendar_home.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'models/calendar_model.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => CalendarModel(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -12,20 +16,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Welcome to Flutter',
-      home: Scaffold(
-          appBar: AppBar(
-            title: const Text("Welcome to Flutter"),
-          ),
-          body: Column(
-            children: const [
-              CalendarHeader(year: 2022, month: 5),
-              Expanded(
-                child: Month(year: 2022, month: 5),
-              )
-            ],
-          )),
+    return const MaterialApp(
+      title: 'Diet Calendar App',
+      home: CalendarHome(),
     );
   }
 }

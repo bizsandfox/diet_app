@@ -20,7 +20,7 @@ class Calendar {
 
     var firstDayOfMonth = DateTime(year, month, 1);
     var firstDayOfCalendar = DateTime(year, month, 1)
-        .subtract(Duration(days: DateTime.daysPerWeek - firstDayOfMonth.weekday));
+        .subtract(Duration(days: firstDayOfMonth.weekday == 7 ? 0 : firstDayOfMonth.weekday));
 
     var daysOfMonth = List<DateTime>.generate(
         calendarSize, (index) => firstDayOfCalendar.add(Duration(days: index)));
