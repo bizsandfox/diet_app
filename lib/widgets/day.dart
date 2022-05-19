@@ -8,7 +8,7 @@ class Day extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var _fontSize = TextStyle(fontSize: 18, color: isActive ? Colors.black : Colors.grey);
+    var _fontSize = TextStyle(fontSize: 18, color: isActive ? (Colors.black) : Colors.grey);
 
     return Center(child: Text(day.toString(), style: _fontSize));
   }

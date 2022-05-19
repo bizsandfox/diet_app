@@ -1,3 +1,4 @@
+import 'package:diet_app/widgets/month_header.dart';
 import 'package:flutter/material.dart';
 
 import 'calendar_header.dart';
@@ -20,6 +21,7 @@ class _CalendarHomeState extends State<CalendarHome> {
         body: Column(
           children: const [
             CalendarHeader(),
+            MonthHeader(),
             Expanded(
               child: Month(),
             )
